@@ -1,7 +1,6 @@
-import java.io.*;
+package base;
 
 public class Base2 {
-
     public int reverse(int x){
         int rev = 0;
         while (x != 0) {
@@ -13,4 +12,5 @@ public class Base2 {
         }
         return rev;
     }
+
 }
