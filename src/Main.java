@@ -1,6 +1,9 @@
 //import base.Base2;
 //import base.Base3;
 import base.Base4;
+import base.Base6;
+
+import java.util.Stack;
 
 public class Main {
 
@@ -25,8 +28,18 @@ public class Main {
 //        System.out.println(base3.isPalindrome(n));
 //        System.out.println(base3.isPalindrome(x));
         //test base4
-        Base4 base4 = new Base4();
-        String s ="III";
-        System.out.println(base4.romanToInt(s));
+//        Base4 base4 = new Base4();
+//        String s ="III";
+//        System.out.println(base4.romanToInt(s));
+        //test base5
+        Base6 base6 = new Base6();
+        String str1="()";
+        String str2 = "()[]{}";
+        String str3 ="(]";
+        System.out.println(base6.isValid(""));
+        System.out.println(base6.isValid(str2));
+        System.out.println(base6.isValid(str3));
+
+
     }
 }
