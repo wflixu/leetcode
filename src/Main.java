@@ -1,7 +1,10 @@
 //import base.Base2;
 //import base.Base3;
+
+import base.Base1;
 import base.Base4;
 import base.Base6;
+import myutil.ListNode;
 
 import java.util.Stack;
 
@@ -32,13 +35,33 @@ public class Main {
 //        String s ="III";
 //        System.out.println(base4.romanToInt(s));
         //test base5
-        Base6 base6 = new Base6();
-        String str1="()";
-        String str2 = "()[]{}";
-        String str3 ="(]";
-        System.out.println(base6.isValid(""));
-        System.out.println(base6.isValid(str2));
-        System.out.println(base6.isValid(str3));
+//        Base6 base6 = new Base6();
+//        String str1="()";
+//        String str2 = "()[]{}";
+//        String str3 ="(]";
+//        System.out.println(base6.isValid(""));
+//        System.out.println(base6.isValid(str2));
+//        System.out.println(base6.isValid(str3));
+
+//        ListNode l1 = new ListNode(0);
+//        l1.next = new ListNode(2);
+//        l1.next.next = new ListNode(5);
+//        l1.next.next.next = new ListNode(7);
+//
+//        ListNode l2 = new ListNode(1);
+//        l2.next = new ListNode(3);
+//        l2.next.next = new ListNode(5);
+
+        Base1 base1 = new Base1();
+//        ListNode l = base1.mergeTwoLists(l1, l2);
+//        while (l != null) {
+//            System.out.println(l.val);
+//            l = l.next;
+//        }
+
+        int []arr = {1,2,2,3,4,4,23};
+        System.out.println(base1.removeDuplicates(arr));
+
 
 
     }
