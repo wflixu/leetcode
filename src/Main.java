@@ -59,9 +59,11 @@ public class Main {
 //            l = l.next;
 //        }
 
-        int []arr = {1,2,2,3,4,4,23};
-        System.out.println(base1.removeDuplicates(arr));
+//        int []arr = {1,2,2,3,4,4,23};
+//        System.out.println(base1.removeDuplicates(arr));
 
+        int []arr={1};
+        System.out.println(base1.searchInsert(arr,1));
 
 
     }
