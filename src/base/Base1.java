@@ -139,5 +139,26 @@ public class Base1 {
           return  i;
     }
 
+    //报数
+    public String countAndSay(int n) {
+        if(n==1){
+            return "1";
+        }
+        String s = countAndSay(n-1);
+        StringBuffer sb = new StringBuffer();
+        int i=0;
+        char []cs = s.toCharArray();
+        while(i<s.length()){
+            char temp =cs[i++];
+            int repeat = 1;
+            while(i<cs.length&&temp==cs[i]){
+                repeat++;
+                i++;
+            }
+            sb.append(""+repeat+temp);
+        }
+        return sb.toString();
+    }
+
 
 }
