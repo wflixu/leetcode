@@ -160,5 +160,44 @@ public class Base1 {
         return sb.toString();
     }
 
+    /**
+     * 最大子序和
+     * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组
+     * （子数组最少包含一个元素），返回其最大和。
+     */
+
+    public int maxSubArray(int[] nums) {
+        //暴力解法
+//        int maxSum =0;
+//        for(int i=0;i<nums.length;i++){
+//            int tempSum =0;
+//            for (int j=i;j<nums.length;j++){
+//                tempSum +=nums[j];
+//                if(tempSum>maxSum){
+//                    maxSum =tempSum;
+//                }
+//            }
+//        }
+//        return maxSum;
+
+        //动态规划
+        int maxSum=nums[0];
+        int tempSum=0;
+        int begin =0;
+        for(int i = 0;i<nums.length;i++){
+
+            if(tempSum>0){
+                tempSum +=nums[i];
+            }else {
+                tempSum = nums[i];
+                begin=i;
+            }
+            if(maxSum<tempSum){
+                maxSum = tempSum;
+            }
+        }
+        return  maxSum;
+    }
+
 
 }
