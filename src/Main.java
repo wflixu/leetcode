@@ -65,9 +65,12 @@ public class Main {
 //        int []arr={1};
 //        System.out.println(base1.searchInsert(arr,1));
 
-        int []arr={ -2,1,-3,4,-1,2,1,-5,4};
-        System.out.println(base1.maxSubArray(arr));
+//        int []arr={ -2,1,-3,4,-1,2,1,-5,4};
+//        System.out.println(base1.maxSubArray(arr));
 
+        //base14
+        String s ="a ";
+        System.out.println(base1.lengthOfLastWord(s));
 
     }
 }

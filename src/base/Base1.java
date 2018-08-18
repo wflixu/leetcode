@@ -2,6 +2,7 @@ package base;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import myutil.ListNode;
+import sun.security.util.Length;
 
 public class Base1 {
     public int[] twoSum(int[] nums, int target) {
@@ -33,11 +34,11 @@ public class Base1 {
                 prevHead.next = prevOther;
                 prevOther = next;
             }
-            if(prevHead.next==null){
-                prevHead.next=prevOther;
+            if (prevHead.next == null) {
+                prevHead.next = prevOther;
                 break;
             }
-            prevHead=prevHead.next;
+            prevHead = prevHead.next;
         }
         return head;
 
@@ -45,62 +46,66 @@ public class Base1 {
 
     /**
      * 删除重复的数组
+     *
      * @param nums
      * @return
      */
     public int removeDuplicates(int[] nums) {
-         if(nums.length==0){
-             return 0;
-         }
-         if(nums.length==1){
-            return  1;
+        if (nums.length == 0) {
+            return 0;
         }
-         int k=0;
-         for (int i =1;i<nums.length;i++){
-              if(nums[i]!=nums[k]){
-                  nums[++k]=nums[i];
-              }
-         }
-        return k+1;
+        if (nums.length == 1) {
+            return 1;
+        }
+        int k = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[k]) {
+                nums[++k] = nums[i];
+            }
+        }
+        return k + 1;
     }
+
     public int removeElement(int[] nums, int val) {
-        int flag =0;
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]==val){
+        int flag = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == val) {
                 continue;
-            }else{
-                nums[flag]=nums[i];
+            } else {
+                nums[flag] = nums[i];
                 flag++;
             }
         }
         return flag;
 
     }
+
     /**
      * 实现 strStr() 函数。
-     *给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符
-     *串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+     * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符
+     * 串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
      */
     public int strStr(String haystack, String needle) {
         int len1 = haystack.length();
-        int len2 =needle.length();
-        if(needle==""){
+        int len2 = needle.length();
+        if (needle == "") {
             return 0;
         }
-        if(len2>len1){
+        if (len2 > len1) {
             return -1;
         }
-        for(int i =0;i<=len1-len2;i++){
-             String temp = haystack.substring(i,i+len2);
-             if(temp.equals(needle)){
-                 return i;
-             }
+        for (int i = 0; i <= len1 - len2; i++) {
+            String temp = haystack.substring(i, i + len2);
+            if (temp.equals(needle)) {
+                return i;
+            }
         }
         return -1;
     }
 
     /**
      * 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+     *
      * @param nums
      * @param target
      * @return
@@ -130,32 +135,32 @@ public class Base1 {
 //        }
 //        return  len;
 
-          int i;
-          for(i=0;i<nums.length;i++){
-              if(target<=nums[i]){
-                  break;
-              }
-          }
-          return  i;
+        int i;
+        for (i = 0; i < nums.length; i++) {
+            if (target <= nums[i]) {
+                break;
+            }
+        }
+        return i;
     }
 
     //报数
     public String countAndSay(int n) {
-        if(n==1){
+        if (n == 1) {
             return "1";
         }
-        String s = countAndSay(n-1);
+        String s = countAndSay(n - 1);
         StringBuffer sb = new StringBuffer();
-        int i=0;
-        char []cs = s.toCharArray();
-        while(i<s.length()){
-            char temp =cs[i++];
+        int i = 0;
+        char[] cs = s.toCharArray();
+        while (i < s.length()) {
+            char temp = cs[i++];
             int repeat = 1;
-            while(i<cs.length&&temp==cs[i]){
+            while (i < cs.length && temp == cs[i]) {
                 repeat++;
                 i++;
             }
-            sb.append(""+repeat+temp);
+            sb.append("" + repeat + temp);
         }
         return sb.toString();
     }
@@ -181,22 +186,47 @@ public class Base1 {
 //        return maxSum;
 
         //动态规划
-        int maxSum=nums[0];
-        int tempSum=0;
-        int begin =0;
-        for(int i = 0;i<nums.length;i++){
+        int maxSum = nums[0];
+        int tempSum = 0;
+        int begin = 0;
+        for (int i = 0; i < nums.length; i++) {
 
-            if(tempSum>0){
-                tempSum +=nums[i];
-            }else {
+            if (tempSum > 0) {
+                tempSum += nums[i];
+            } else {
                 tempSum = nums[i];
-                begin=i;
+                begin = i;
             }
-            if(maxSum<tempSum){
+            if (maxSum < tempSum) {
                 maxSum = tempSum;
             }
         }
-        return  maxSum;
+        return maxSum;
+    }
+
+    /**
+     * 给定一个仅包含大小写字母和空格 ' ' 的字符串，返回其最后一个单词的长度。
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLastWord(String s) {
+        s = s.trim();
+        int len = s.length();
+
+        if (len < 1) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (s.charAt(i) != ' ') {
+                count++;
+            } else {
+                count = 0;
+            }
+        }
+
+        return count;
     }
 
 
