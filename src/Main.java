@@ -69,8 +69,11 @@ public class Main {
 //        System.out.println(base1.maxSubArray(arr));
 
         //base14
-        String s ="a ";
-        System.out.println(base1.lengthOfLastWord(s));
+//        String s ="a ";
+//        System.out.println(base1.lengthOfLastWord(s));
 
+          String a ="101";
+          String b ="1111";
+        System.out.println(base1.addBinary(a,b));
     }
 }

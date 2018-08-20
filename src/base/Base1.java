@@ -228,6 +228,62 @@ public class Base1 {
 
         return count;
     }
+    /**
+     *
+     */
+    public int[] plusOne(int[] digits) {
+        int carry = 1;
+        int i = digits.length - 1;
+        while (i >= 0 && carry > 0) {
+            int sum = digits[i] + carry;
+            carry = sum / 10;
+            digits[i] = sum % 10;
+            -- i;
+        }
+        if (carry > 0) {
+            int[] newArray = new int[digits.length + 1];
+            System.arraycopy(digits, 0, newArray, 1, digits.length);
+            newArray[0] = carry;
+            return newArray;
+        }
+        return digits;
+    }
 
+    /**
+     * 二进制求和
+     * @param a
+     * @param b
+     * @return
+     */
+    public String addBinary(String a, String b) {
+        int alength=a.length();
+        int blength=b.length();
+        String result="";
+        int sum =0;
+        while(alength>=1||blength>=1){
+            if(alength>=1){
+                sum+=Integer.parseInt(a.substring(alength-1,alength));
+                alength--;
+            }
+            if(blength>=1){
+                sum+=Integer.parseInt(b.substring(blength-1,blength));
+                blength--;
+            }
+            if(sum==2){
+                result="0"+result;
+                sum=1;
+            }else if(sum==3){
+                result="1"+result;
+                sum=1;
+            }else{
+                result=sum+""+result;
+                sum=0;
+            }
+        }
+        if(sum==1){
+            result="1"+result;
+        }
+        return result;
+    }
 
 }
