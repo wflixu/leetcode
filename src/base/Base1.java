@@ -4,6 +4,8 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 import myutil.ListNode;
 import sun.security.util.Length;
 
+import java.nio.file.Watchable;
+
 public class Base1 {
     public int[] twoSum(int[] nums, int target) {
         int res[] = new int[2];
@@ -285,5 +287,67 @@ public class Base1 {
         }
         return result;
     }
+
+    /**
+     * x 的平方根
+     * @param x
+     * @return
+     */
+    public int mySqrt(int x) {
+        if(c<0){
+            return 0;
+        }
+        double err = 1e-15;
+        double t =x;
+        while(Math.abs(t-x/t)>err*t){
+            t=(x/t+t)/2.0;
+        }
+        return  (int) t;
+    }
+
+    /**
+     * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+     * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+     * @param n
+     * @return
+     */
+    public int climbStairs(int n) {
+        int result =0;
+        if(n==1){
+            result =1;
+        }
+        if(n==2){
+            result=2;
+        }
+        if(n>2){
+            int []ways = new int[n];
+            ways[0]=1;
+            ways[1]=2;
+            for(int i=2;i<ways.length;i++){
+                ways[i]=ways[i-1]+ways[i-2];
+            }
+            result = ways[ways.length-1];
+        }
+        return  result;
+    }
+
+    /**
+     * 删除排序链表中的重复元素
+     * @param head
+     * @return
+     */
+    public ListNode deleteDuplicates(ListNode head) {
+       ListNode current =head;
+       while(current!=null&&current.next!=null){
+           if(current.val==current.next.val){
+                current.next =current.next.next;
+           }else{
+               current=current.next;
+           }
+
+       }
+       return head;
+    }
+
 
 }
