@@ -72,8 +72,8 @@ public class Main {
 //        String s ="a ";
 //        System.out.println(base1.lengthOfLastWord(s));
 
-          String a ="101";
-          String b ="1111";
-        System.out.println(base1.addBinary(a,b));
+//          String a ="101";
+//          String b ="1111";
+//        System.out.println(base1.addBinary(a,b));
     }
 }
