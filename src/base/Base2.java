@@ -1,6 +1,11 @@
 package base;
 import  myutil.TreeNode;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Base2 {
     public int reverse(int x){
         int rev = 0;
@@ -46,4 +51,49 @@ public class Base2 {
         }
     }
 
+    /**
+     * 二叉树的最大深度
+     * @param root
+     * @return
+     */
+    public int maxDepth(TreeNode root) {
+        if(root==null){
+            return 0;
+        }else{
+            int left = maxDepth(root.left);
+            int right = maxDepth(root.right);
+            return 1+Math.max(left,right);
+        }
+    }
+
+    /**
+     * 二叉树的层次遍历
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        if(root==null) {
+            return Collections.emptyList();
+        }
+        List<List<Integer>> res = new ArrayList<>();
+
+        LinkedList<TreeNode> ll=new LinkedList<>();
+        ll.add(root);
+        while (!ll.isEmpty()){
+            int size  = ll.size();
+            List<Integer> sub=new LinkedList<>();
+            for(int i=0; i<size;i++){
+                TreeNode node = ll.remove();
+                sub.add(node.val);
+                if(node.left!=null){
+                    ll.add(node.left);
+                }
+                if(node.right!=null){
+                    ll.add(node.right);
+                }
+            }
+            res.add(0,sub);
+        }
+       return  res;
+    }
 }

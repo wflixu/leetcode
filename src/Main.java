@@ -5,7 +5,8 @@ import base.Base1;
 import base.Base4;
 import base.Base6;
 import myutil.ListNode;
-
+import java.util.ArrayList;
+import  java.util.List;
 import java.util.Stack;
 
 public class Main {
@@ -52,7 +53,7 @@ public class Main {
 //        l2.next = new ListNode(3);
 //        l2.next.next = new ListNode(5);
 
-        Base1 base1 = new Base1();
+//        Base1 base1 = new Base1();
 //        ListNode l = base1.mergeTwoLists(l1, l2);
 //        while (l != null) {
 //            System.out.println(l.val);
@@ -75,5 +76,15 @@ public class Main {
 //          String a ="101";
 //          String b ="1111";
 //        System.out.println(base1.addBinary(a,b));
+
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("e");
+        list.add(2, "f");
+        System.out.println(list);
+
     }
 }
