@@ -294,7 +294,7 @@ public class Base1 {
      * @return
      */
     public int mySqrt(int x) {
-        if(c<0){
+        if(x<0){
             return 0;
         }
         double err = 1e-15;

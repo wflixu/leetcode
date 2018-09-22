@@ -1,4 +1,5 @@
 package base;
+import myutil.TreeNode;
 
 public class Base3 {
     public boolean isPalindrome (int x){
@@ -11,5 +12,9 @@ public class Base3 {
             x/=10;
         }
         return  x==rev|| x==rev/10;
+    }
+
+    public void flatten(TreeNode root) {
+
     }
 }
